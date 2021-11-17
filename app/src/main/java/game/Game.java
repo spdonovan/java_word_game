@@ -1,11 +1,13 @@
 package game;
 
+
 public class Game {
   private static final char HIDECHAR = '_';
   private String original;
+  private int attempts = 10;
 
-  public Game(String original) {
-    this.original = original;
+  public Game(WordChooser mockedChooser) {
+    this.original = mockedChooser.getRandomWordFromDictionary();
   }
 
   public String getWordToGuess() {
@@ -18,6 +20,14 @@ public class Game {
     }
   return sb.toString();
   }
+
+  public int remainingAttempts() {
+    return attempts;
+  }
+
+
+
+
 
 }
 
