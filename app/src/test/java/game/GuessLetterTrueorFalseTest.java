@@ -23,4 +23,21 @@ public class GuessLetterTrueorFalseTest {
   assertFalse(game.guessletter('H'));
   assertEquals(game.remainingAttempts(), 9 );
 }
+
+@Test public void testGuessLetterTrueAndDisplayLetter() {
+  WordChooser mockedChooser = mock(WordChooser.class);
+  when(mockedChooser.getRandomWordFromDictionary()).thenReturn("TESTING");
+  Game game = new Game(mockedChooser);
+  assertEquals(game.guessletter('S'), true);
+  assertEquals(game.getWordToGuess(), "T_S____");
+}
+
+@Test public void testGuessLetterFalseAndDisplayLetter() {
+  WordChooser mockedChooser = mock(WordChooser.class);
+  when(mockedChooser.getRandomWordFromDictionary()).thenReturn("TESTING");
+  Game game = new Game(mockedChooser);
+  assertFalse(game.guessletter('F'));
+  assertEquals(game.getWordToGuess(), "T______");
+  assertEquals(game.remainingAttempts(), 9 );
+}
 }
