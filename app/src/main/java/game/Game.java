@@ -25,6 +25,14 @@ public class Game {
     return attempts;
   }
 
+  public boolean guessletter(Character letter) {
+    if (original.indexOf(letter) >= 0)
+    return true;
+    else
+    attempts = attempts -1;
+    return false;
+  }
+
 
 
 
