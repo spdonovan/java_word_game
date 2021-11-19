@@ -17,20 +17,23 @@ public class App {
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
 
+        Scanner scanner = new Scanner(System.in);
     do {
         System.out.println(game.getWordToGuess());
         System.out.println("Enter your guess:");
 
-        Scanner scanner = new Scanner(System.in);
+        
         Character guess = scanner.nextLine().charAt(0);
-        Boolean result = game.guessletter(guess);
-        System.out.println(result);
+        
 
-        if (result = true)
-            System.out.println("Correct!!");
-        else 
-            System.out.println("Incorrect!!");
+
+        if (game.guessletter(guess))
+            {System.out.println("Correct!!");}
+        else
+            {System.out.println("Incorrect!!");}
             
-    } while (game.remainingAttempts() >= 10);
+
+    } while (game.remainingAttempts() > 0);
+      scanner.close();
 }
 }
